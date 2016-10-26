@@ -4,3 +4,8 @@ dist
 nbproject
 .gradle
 .DS_Store
+/.nb-gradle/
+gradle-app.setting
+.nbattrs
+.nb-gradle-properties
+
