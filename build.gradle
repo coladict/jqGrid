@@ -30,7 +30,26 @@ task init() {
 
 task jqgrid(dependsOn: 'init') {
     description = "Concatinate all javascript files into one javascript file: $jqGridFile.absolutePath"
-    def files = fileTree(dir: srcdir, include: '*.js')
+    // Order matters! grid.base.js must always be first
+    // old wildcard approach created crashing script
+    def files = [
+		new File(srcdir, 'grid.base.js'),
+		new File(srcdir, 'grid.common.js'),
+		new File(srcdir, 'grid.formedit.js'),
+		new File(srcdir, 'grid.inlinedit.js'),
+		new File(srcdir, 'grid.celledit.js'),
+		new File(srcdir, 'grid.subgrid.js'),
+		new File(srcdir, 'grid.treegrid.js'),
+		new File(srcdir, 'grid.grouping.js'),
+		new File(srcdir, 'grid.tbltogrid.js'),
+		new File(srcdir, 'grid.import.js'),
+		new File(srcdir, 'grid.custom.js'),
+		new File(srcdir, 'jquery.fmatter.js'),
+		new File(srcdir, 'JsonXml.js'),
+		new File(srcdir, 'grid.jqueryui.js'),
+		new File(srcdir, 'grid.filter.js'),
+		new File(srcdir, 'i18n/grid.locale-en.js')
+	]
     inputs.file files
     outputs.file jqGridFile
 
