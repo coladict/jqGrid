@@ -48,6 +48,9 @@ task jqgrid(dependsOn: 'init') {
 		new File(srcdir, 'JsonXml.js'),
 		new File(srcdir, 'grid.jqueryui.js'),
 		new File(srcdir, 'grid.filter.js'),
+		new File(srcdir, 'grid.pivot.js'),
+		new File(srcdir, 'jqDnR.js'),
+		new File(srcdir, 'jqModal.js'),
 		new File(srcdir, 'i18n/grid.locale-en.js')
 	]
     inputs.file files
